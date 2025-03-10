@@ -13,16 +13,22 @@
       gtag('config', 'G-9N1XVJ5VYW');
     </script>
     <script>
-      function trackDownload(fileName) {
+      function trackDownload(fileName, event) {
+        if (event) event.preventDefault(); 
+
+        console.log("Tracking download:", fileName); 
+
         gtag('event', 'download', {
           'event_category': 'Downloads',
-          'event_label': fileName
-        });
-        setTimeout(function() {
-          window.location.href = event.target.href;
-        }, 300);
-      }   
-    </script>
+          'event_label': fileName,
+          'value': 1 
+    });
+
+    setTimeout(function() {
+      window.location.href = event.target.href;
+    }, 500); 
+  }
+</script>
 
 </head>
 <body class="bg-gray-900 text-white font-sans">
@@ -44,9 +50,13 @@
                     <li>MacOS Fullscreen Patch</li>
                     <li>Lowered minimum iOS version to iOS 10</li>
                 </ul>
-                <a href="https://fnmacassistant.s3.us-west-1.amazonaws.com/FnMacIPAs/Fortnite-34.00.3.ipa" class="block mt-2 bg-green-600 hover:bg-green-700 text-white text-center font-bold py-2 px-4 rounded" onclick="trackDownload('Fortnite IPA', event)">Download Fortnite IPA (Recommended)</a>
+                <a href="https://fnmacassistant.s3.us-west-1.amazonaws.com/FnMacIPAs/Fortnite-34.00.3.ipa"
+                   class="block mt-2 bg-green-600 hover:bg-green-700 text-white text-center font-bold py-2 px-4 rounded"
+                   onclick="trackDownload('Fortnite IPA', event)">
+                   Download Fortnite IPA (Recommended)
+                </a>
                 <p class="mt-3 text-gray-400">Fortnite Clean IPA: Unmodified IPA file, straight from source.</p>
-                <a href="https://fnmacassistant.s3.us-west-1.amazonaws.com/FnMacIPAs/Fortnite-34.00.3_Clean.ipa" class="block mt-2 bg-gray-600 hover:bg-gray-700 text-white text-center font-bold py-2 px-4 rounded" onclick="trackDownload('Fortnite Clean', event)">Download Clean IPA</a>
+                <a href="https://fnmacassistant.s3.us-west-1.amazonaws.com/FnMacIPAs/Fortnite-34.00.3_Clean.ipa" class="block mt-2 bg-gray-600 hover:bg-gray-700 text-white text-center font-bold py-2 px-4 rounded" onclick="trackDownload('Fortnite Clean', event)"> Download Clean IPA</a>
             </div>
 
             <div class="bg-gray-800 p-4 rounded-lg shadow-md">
