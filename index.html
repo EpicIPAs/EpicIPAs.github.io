@@ -12,6 +12,14 @@
       gtag('js', new Date());
       gtag('config', 'G-9N1XVJ5VYW');
     </script>
+    <script>
+      function trackDownload(fileName) {
+        gtag('event', 'download', {
+          'event_category': 'Downloads',
+          'event_label': fileName
+        });
+      }
+    </script>
 
 </head>
 <body class="bg-gray-900 text-white font-sans">
@@ -33,9 +41,9 @@
                     <li>MacOS Fullscreen Patch</li>
                     <li>Lowered minimum iOS version to iOS 10</li>
                 </ul>
-                <a href="https://fnmacassistant.s3.us-west-1.amazonaws.com/FnMacIPAs/Fortnite-34.00.3.ipa" class="block mt-2 bg-green-600 hover:bg-green-700 text-white text-center font-bold py-2 px-4 rounded">Download Fortnite IPA (Recommended)</a>
+                <a href="https://fnmacassistant.s3.us-west-1.amazonaws.com/FnMacIPAs/Fortnite-34.00.3.ipa" class="block mt-2 bg-green-600 hover:bg-green-700 text-white text-center font-bold py-2 px-4 rounded" onclick="trackDownload('Fortnite IPA')">Download Fortnite IPA (Recommended)</a>
                 <p class="mt-3 text-gray-400">Fortnite Clean IPA: Unmodified IPA file, straight from source.</p>
-                <a href="https://fnmacassistant.s3.us-west-1.amazonaws.com/FnMacIPAs/Fortnite-34.00.3_Clean.ipa" class="block mt-2 bg-gray-600 hover:bg-gray-700 text-white text-center font-bold py-2 px-4 rounded">Download Clean IPA</a>
+                <a href="https://fnmacassistant.s3.us-west-1.amazonaws.com/FnMacIPAs/Fortnite-34.00.3_Clean.ipa" class="block mt-2 bg-gray-600 hover:bg-gray-700 text-white text-center font-bold py-2 px-4 rounded" onclick="trackDownload('Fortnite Clean')">Download Clean IPA</a>
             </div>
 
             <div class="bg-gray-800 p-4 rounded-lg shadow-md">
@@ -48,9 +56,9 @@
                     <li>MacOS Fullscreen Patch</li>
                     <li>Lowered minimum iOS version to iOS 10</li>
                 </ul>
-                <a href="https://fnmacassistant.s3.us-west-1.amazonaws.com/FGMacIPAs/Fall_Guys-11.6.0.ipa" class="block mt-2 bg-purple-600 hover:bg-purple-700 text-white text-center font-bold py-2 px-4 rounded">Download Fall Guys IPA</a>
+                <a href="https://fnmacassistant.s3.us-west-1.amazonaws.com/FGMacIPAs/Fall_Guys-11.6.0.ipa" class="block mt-2 bg-purple-600 hover:bg-purple-700 text-white text-center font-bold py-2 px-4 rounded" onclick="trackDownload('Fall Guys IPA')">Download Fall Guys IPA</a>
                 <p class="mt-3 text-gray-400">Fall Guys Clean IPA: Unmodified IPA file, straight from source.</p>
-                <a href="https://fnmacassistant.s3.us-west-1.amazonaws.com/FGMacIPAs/Fall_Guys-11.6.0_Clean.ipa" class="block mt-2 bg-gray-600 hover:bg-gray-700 text-white text-center font-bold py-2 px-4 rounded">Download Clean IPA</a>
+                <a href="https://fnmacassistant.s3.us-west-1.amazonaws.com/FGMacIPAs/Fall_Guys-11.6.0_Clean.ipa" class="block mt-2 bg-gray-600 hover:bg-gray-700 text-white text-center font-bold py-2 px-4 rounded" onclick="trackDownload('Fall Guys Clean')">Download Clean IPA</a>
             </div>
         </div>
 
