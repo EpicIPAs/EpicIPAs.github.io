@@ -15,9 +15,6 @@
     <script>
       function trackDownload(fileName, event) {
         if (event) event.preventDefault(); 
-
-        console.log("Tracking download:", fileName); 
-
         gtag('event', 'download', {
           'event_category': 'Downloads',
           'event_label': fileName,
@@ -28,7 +25,8 @@
           window.location.href = event.target.href;
         }, 500); 
       }
-
+    </script>
+    <script>
       const securityToken = "RnJlZUZvcnRuaXRl";
 
       function requestAccess() {
