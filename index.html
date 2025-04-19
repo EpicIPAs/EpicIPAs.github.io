@@ -44,64 +44,6 @@
       document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("content").style.display = "none";
         requestAccess();
-
-        const ipaSelect = document.getElementById("ipa-select");
-        const ipaInfo = document.getElementById("ipa-info");
-        const downloadButton = document.getElementById("download-button");
-        const tweakButtons = document.getElementById("tweak-buttons");
-
-        ipaSelect.addEventListener("change", function() {
-          const selected = ipaSelect.value;
-          if (selected === "recommended") {
-            ipaInfo.innerHTML = `
-              <p class="text-gray-400">Includes the following tweaks:</p>
-              <ul class="list-disc list-inside text-gray-400">
-                <li>Removed device restriction</li>
-                <li>Allows editing files from the Files app</li>
-                <li>MacOS Fullscreen Patch</li>
-                <li>Lowered minimum iOS version to iOS 10</li>
-              </ul>
-            `;
-            downloadButton.href = "https://github.com/EpicIPAs/Fn/releases/download/v34.30.1/Fortnite-34.30.1.ipa";
-            downloadButton.setAttribute("onclick", "trackDownload('Fortnite IPA', event)");
-            downloadButton.textContent = "Download IPA";
-            tweakButtons.style.display = "none";
-          } else if (selected === "fnmactweak") {
-            ipaInfo.innerHTML = `
-              <p class="text-white">Includes the following regular tweaks:</p>
-              <ul class="list-disc list-inside text-gray-400">
-                <li>Removed device restriction</li>
-                <li>Allows editing files from the Files app</li>
-                <li>MacOS Fullscreen Patch</li>
-                <li>Lowered minimum iOS version to iOS 10</li>
-              </ul>
-              <p class="text-white mt-2">Plus the following gameplay enhancements by rt2746:</p>
-              <ul class="list-disc list-inside text-gray-400">
-                <li>Toggle pointer locking with Left Option key (unlocked by default on game load)</li>
-                <li>Unlocks 120 FPS option (requires 120Hz display for full effect)</li>
-                <li>Unlocks graphic preset selection (Low, Medium, High, Epic; 120 FPS sets to Medium)</li>
-                <li>Custom options menu (press P) for mouse sensitivity adjustments</li>
-                <li>Mouse interaction with mobile UI</li>
-              </ul>
-              <p class="mt-2 text-gray-300">Credit to <strong>rt2746</strong> for the FnMacTweak.</p>
-              <p class="mt-2 text-red-500 font-semibold bg-red-900/50 p-2 rounded">Disclaimer: Use FnMacTweak at your own risk. We are not responsible for any damages or incidents caused by this tweak, including bans.</p>
-            `;
-            downloadButton.href = "https://github.com/EpicIPAs/Fn/releases/download/v34.30.1/Fortnite-34.30.1_Tweak.ipa";
-            downloadButton.setAttribute("onclick", "trackDownload('Fortnite FnMacTweak IPA', event)");
-            downloadButton.textContent = "Download IPA";
-            tweakButtons.style.display = "flex";
-          } else if (selected === "clean") {
-            ipaInfo.innerHTML = `
-              <p class="text-gray-400">Unmodified IPA file, straight from source.</p>
-            `;
-            downloadButton.href = "https://github.com/EpicIPAs/Fn/releases/download/v34.30.1/Fortnite-34.30.1_Clean.ipa";
-            downloadButton.setAttribute("onclick", "trackDownload('Fortnite Clean', event)");
-            downloadButton.textContent = "Download IPA";
-            tweakButtons.style.display = "none";
-          }
-        });
-
-        ipaSelect.dispatchEvent(new Event("change"));
       });
     </script>
 </head>
@@ -118,29 +60,22 @@
             <div class="mt-6 space-y-4">
                 <div class="bg-gray-800 p-4 rounded-lg shadow-md">
                     <h2 class="text-xl font-semibold">Fortnite IPAs</h2>
-                    <p class="text-gray-300 mt-2"><strong>Current Version:</strong> 34.30.1</p>
-                    <div class="mt-4">
-                        <label for="ipa-select" class="text-gray-300">Select IPA Version:</label>
-                        <select id="ipa-select" class="mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-teal-500">
-                            <option value="recommended">Regular IPA (Recommended)</option>
-                            <option value="fnmactweak">Tweaked IPA</option>
-                            <option value="clean">Clean IPA</option>
-                        </select>
-                    </div>
-                    <div id="ipa-info" class="mt-4"></div>
-                    <div id="tweak-buttons" class="flex space-x-2 mt-2" style="display: none;">
-                        <a href="https://cdn.discordapp.com/attachments/1362438268632957090/1363110858833527046/FnMacTweak-1.0.1.zip?ex=6804d76a&is=680385ea&hm=25eb5915f1d98d51e972bcfd27568a4c1d9f45dcb1954df960c66879d49ef7cf&"
-                           class="block flex-1 bg-gray-600 hover:bg-gray-700 text-white text-center font-bold py-2 px-4 rounded"
-                           onclick="trackDownload('FnMacTweak Source', event)">
-                           Download Tweak Source (.zip)
-                        </a>
-                        <a href="https://cdn.discordapp.com/attachments/1362438268632957090/1363110858498113546/fnmactweak_1.0.1.deb?ex=6804d76a&is=680385ea&hm=e40e2b95f965230869f32c1e40b52e4a2cdb63269be1e3750786879eec335482&"
-                           class="block flex-1 bg-gray-600 hover:bg-gray-700 text-white text-center font-bold py-2 px-4 rounded"
-                           onclick="trackDownload('FnMacTweak .deb', event)">
-                           Download Tweak (.deb)
-                        </a>
-                    </div>
-                    <a id="download-button" href="#" class="block mt-4 bg-teal-600 hover:bg-teal-700 text-white text-center font-bold py-2 px-4 rounded"></a>
+                    <p class="text-gray-400">Fortnite IPA includes the following tweaks:</p>
+                    <ul class="list-disc list-inside text-gray-400">
+                        <li>Removed device restriction</li>
+                        <li>Allows editing files from the Files app</li>
+                        <li>MacOS Fullscreen Patch</li>
+                        <li>Lowered minimum iOS version to iOS 10</li>
+                    </ul>
+                    <p class="mt-2 text-gray-300"><strong>Current Version:</strong> 34.30.1</p>
+
+                    <a href="https://github.com/EpicIPAs/Fn/releases/download/v34.30.1/Fortnite-34.30.1.ipa"
+                       class="block mt-2 bg-green-600 hover:bg-green-700 text-white text-center font-bold py-2 px-4 rounded"
+                       onclick="trackDownload('Fortnite IPA', event)">
+                       Download Fortnite IPA (Recommended)
+                    </a>
+                    <p class="mt-3 text-gray-400">Fortnite Clean IPA: Unmodified IPA file, straight from source.</p>
+                    <a href="https://github.com/EpicIPAs/Fn/releases/download/v34.30.1/Fortnite-34.30.1_Clean.ipa" class="block mt-2 bg-gray-600 hover:bg-gray-700 text-white text-center font-bold py-2 px-4 rounded" onclick="trackDownload('Fortnite Clean', event)"> Download Clean IPA</a>
                 </div>
 
                 <div class="bg-gray-800 p-4 rounded-lg shadow-md">
@@ -155,17 +90,9 @@
                     </ul>
                     <p class="mt-2 text-gray-300"><strong>Current Version:</strong> 18.0.0</p>
 
-                    <a href="https://github.com/EpicIPAs/FG/releases/download/v18.0.0/Fall_Guys-18.0.0.ipa"
-                       class="block mt-2 bg-purple-600 hover:bg-purple-700 text-white text-center font-bold py-2 px-4 rounded"
-                       onclick="trackDownload('Fall Guys IPA', event)">
-                       Download Fall Guys IPA
-                    </a>
+                        <a href="https://github.com/EpicIPAs/FG/releases/download/v18.0.0/Fall_Guys-18.0.0.ipa" class="block mt-2 bg-purple-600 hover:bg-purple-700 text-white text-center font-bold py-2 px-4 rounded" onclick="trackDownload('Fall Guys IPA', event)">Download Fall Guys IPA</a>
                     <p class="mt-3 text-gray-400">Fall Guys Clean IPA: Unmodified IPA file, straight from source.</p>
-                    <a href="https://github.com/EpicIPAs/FG/releases/download/v18.0.0/Fall_Guys-18.0.0_Clean.ipa"
-                       class="block mt-2 bg-gray-600 hover:bg-gray-700 text-white text-center font-bold py-2 px-4 rounded"
-                       onclick="trackDownload('Fall Guys Clean', event)">
-                       Download Clean IPA
-                    </a>
+                    <a href="https://github.com/EpicIPAs/FG/releases/download/v18.0.0/Fall_Guys-18.0.0_Clean.ipa" class="block mt-2 bg-gray-600 hover:bg-gray-700 text-white text-center font-bold py-2 px-4 rounded" onclick="trackDownload('Fall Guys Clean', event)">Download Clean IPA</a>
                 </div>
             </div>
 
