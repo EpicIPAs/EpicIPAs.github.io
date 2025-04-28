@@ -62,7 +62,7 @@
                 <li>Lowered minimum iOS version to iOS 10</li>
               </ul>
             `;
-            downloadButton.href = "https://github.com/EpicIPAs/Fn/releases/download/v34.30.1/Fortnite-34.30.1.ipa";
+            downloadButton.href = "https://github.com/EpicIPAs/Fn/releases/download/v34.40/Fortnite-34.40.ipa";
             downloadButton.setAttribute("onclick", "trackDownload('Fortnite IPA', event)");
             downloadButton.textContent = "Download IPA";
             tweakButtons.style.display = "none";
@@ -83,10 +83,10 @@
                 <li>Custom options menu (press P) for mouse sensitivity adjustments</li>
                 <li>Mouse interaction with mobile UI</li>
               </ul>
-              <p class="mt-2 text-gray-300">Credit to <strong>rt2746</strong> for the FnMacTweak.</p>
+              <p class="mt-2 text-gray-300">Credit to <strong>rt2746</strong> for the tweak.</p>
               <p class="mt-2 text-red-500 font-semibold bg-red-900/50 p-2 rounded">Disclaimer: Use FnMacTweak at your own risk. We are not responsible for any damages or incidents caused by this tweak, including bans.</p>
             `;
-            downloadButton.href = "https://github.com/EpicIPAs/Fn/releases/download/v34.30.1/Fortnite-34.30.1_Tweak.ipa";
+            downloadButton.href = "https://github.com/EpicIPAs/Fn/releases/download/v34.40/Fortnite-34.40_Tweak.ipa";
             downloadButton.setAttribute("onclick", "trackDownload('Fortnite FnMacTweak IPA', event)");
             downloadButton.textContent = "Download IPA";
             tweakButtons.style.display = "flex";
@@ -94,7 +94,7 @@
             ipaInfo.innerHTML = `
               <p class="text-gray-400">Unmodified IPA file, straight from source.</p>
             `;
-            downloadButton.href = "https://github.com/EpicIPAs/Fn/releases/download/v34.30.1/Fortnite-34.30.1_Clean.ipa";
+            downloadButton.href = "https://github.com/EpicIPAs/Fn/releases/download/v34.40/Fortnite-34.40_Clean.ipa";
             downloadButton.setAttribute("onclick", "trackDownload('Fortnite Clean', event)");
             downloadButton.textContent = "Download IPA";
             tweakButtons.style.display = "none";
@@ -118,7 +118,7 @@
             <div class="mt-6 space-y-4">
                 <div class="bg-gray-800 p-4 rounded-lg shadow-md">
                     <h2 class="text-xl font-semibold">Fortnite IPAs</h2>
-                    <p class="text-gray-300 mt-2"><strong>Current Version:</strong> 34.30.1</p>
+                    <p class="text-gray-300 mt-2"><strong>Current Version:</strong> 34.40</p>
                     <div class="mt-4">
                         <label for="ipa-select" class="text-gray-300">Select IPA Version:</label>
                         <select id="ipa-select" class="mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-teal-500">
@@ -129,15 +129,10 @@
                     </div>
                     <div id="ipa-info" class="mt-4"></div>
                     <div id="tweak-buttons" class="flex space-x-2 mt-2" style="display: none;">
-                        <a href="https://cdn.discordapp.com/attachments/1362438268632957090/1363110858833527046/FnMacTweak-1.0.1.zip?ex=6804d76a&is=680385ea&hm=25eb5915f1d98d51e972bcfd27568a4c1d9f45dcb1954df960c66879d49ef7cf&"
+                        <a href="https://github.com/rt-someone/FnMacTweak"
                            class="block flex-1 bg-gray-600 hover:bg-gray-700 text-white text-center font-bold py-2 px-4 rounded"
-                           onclick="trackDownload('FnMacTweak Source', event)">
-                           Download Tweak Source (.zip)
-                        </a>
-                        <a href="https://cdn.discordapp.com/attachments/1362438268632957090/1363110858498113546/fnmactweak_1.0.1.deb?ex=6804d76a&is=680385ea&hm=e40e2b95f965230869f32c1e40b52e4a2cdb63269be1e3750786879eec335482&"
-                           class="block flex-1 bg-gray-600 hover:bg-gray-700 text-white text-center font-bold py-2 px-4 rounded"
-                           onclick="trackDownload('FnMacTweak .deb', event)">
-                           Download Tweak (.deb)
+                           onclick="trackDownload('FnMacTweak GitHub', event)">
+                           View Tweak on GitHub
                         </a>
                     </div>
                     <a id="download-button" href="#" class="block mt-4 bg-teal-600 hover:bg-teal-700 text-white text-center font-bold py-2 px-4 rounded"></a>
@@ -167,6 +162,12 @@
                        Download Clean IPA
                     </a>
                 </div>
+            </div>
+
+            <div class="mt-6 p-4 bg-gray-800 rounded-lg shadow-md">
+                <h2 class="text-lg font-semibold">Support Our Work</h2>
+                <p class="text-gray-300 text-sm">We've partnered with Flekst0re! To support us, please use our affiliate link:</p>
+                <a href="https://flekstore.com/affiliate" target="_blank" class="block mt-2 bg-gray-600 hover:bg-gray-700 text-gray-200 text-center text-sm font-semibold py-2 px-4 rounded">Visit Flekst0re</a>
             </div>
 
             <div class="mt-6 p-4 bg-gray-800 rounded-lg shadow-md">
