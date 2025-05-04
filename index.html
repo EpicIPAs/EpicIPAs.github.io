@@ -88,7 +88,7 @@
             `;
             downloadButton.href = "https://github.com/EpicIPAs/Fn/releases/download/v35.00/Fortnite-35.00_Tweak.ipa";
             downloadButton.setAttribute("onclick", "trackDownload('Fortnite FnMacTweak IPA', event)");
-            downloadButton.textContent = "Download IPA";
+            downloadButton.textContent = "Download IPA + Tweak";
             tweakButtons.style.display = "flex";
           } else if (selected === "clean") {
             ipaInfo.innerHTML = `
@@ -96,7 +96,7 @@
             `;
             downloadButton.href = "https://github.com/EpicIPAs/Fn/releases/download/v35.00/Fortnite-35.00_Clean.ipa";
             downloadButton.setAttribute("onclick", "trackDownload('Fortnite Clean', event)");
-            downloadButton.textContent = "Download IPA + Tweak";
+            downloadButton.textContent = "Download IPA";
             tweakButtons.style.display = "none";
           }
         });
