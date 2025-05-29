@@ -1,180 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FnMacIPAs</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9N1XVJ5VYW"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-9N1XVJ5VYW', { 'debug_mode': true });
-    </script>
-    <script>
-      function trackDownload(fileName, event) {
-        if (event) event.preventDefault(); 
-        gtag('event', 'download', {
-          'event_category': 'Downloads',
-          'event_label': fileName,
-          'value': 1 
-        });
-
-        setTimeout(function() {
-          window.location.href = event.target.href;
-        }, 500); 
-      }
-    </script>
-    <script>
-      const securityToken = "RnJlZUZvcnRuaXRl";
-
-      function requestAccess() {
-        let userKey = prompt("Enter the password to access this site:");
-        let processedKey = btoa(userKey); 
-        
-        if (processedKey === securityToken) {
-          document.getElementById("content").style.display = "block"; 
-        } else {
-          alert("Incorrect password! You can find it in the Fortnite Mac Discord server.");
-          document.body.innerHTML = ""; 
-        }
-      }
-
-      document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("content").style.display = "none";
-        requestAccess();
-
-        const ipaSelect = document.getElementById("ipa-select");
-        const ipaInfo = document.getElementById("ipa-info");
-        const downloadButton = document.getElementById("download-button");
-        const tweakButtons = document.getElementById("tweak-buttons");
-
-        ipaSelect.addEventListener("change", function() {
-          const selected = ipaSelect.value;
-          if (selected === "recommended") {
-            ipaInfo.innerHTML = `
-              <p class="text-gray-400">Includes the following tweaks:</p>
-              <ul class="list-disc list-inside text-gray-400">
-                <li>Removed device restriction</li>
-                <li>Allows editing files from the Files app</li>
-                <li>MacOS Fullscreen Patch</li>
-                <li>Lowered minimum iOS version to iOS 10 (Currently not working)</li>
-              </ul>
-            `;
-            downloadButton.href = "https://github.com/EpicIPAs/Fn/releases/download/v35.10/Fortnite-35.10.ipa";
-            downloadButton.setAttribute("onclick", "trackDownload('Fortnite IPA', event)");
-            downloadButton.textContent = "Download IPA";
-            tweakButtons.style.display = "none";
-          } else if (selected === "fnmactweak") {
-            ipaInfo.innerHTML = `
-              <p class="text-white">Includes the following regular tweaks:</p>
-              <ul class="list-disc list-inside text-gray-400">
-                <li>Removed device restriction</li>
-                <li>Allows editing files from the Files app</li>
-                <li>MacOS Fullscreen Patch</li>
-                <li>Lowered minimum iOS version to iOS 10 (Currently not working)</li>
-              </ul>
-              <p class="text-white mt-2">Plus the following gameplay enhancements by rt2746:</p>
-              <ul class="list-disc list-inside text-gray-400">
-                <li>Toggle pointer locking with Left Option key (unlocked by default on game load)</li>
-                <li>Unlocks 120 FPS option (requires 120Hz display for full effect)</li>
-                <li>Unlocks graphic preset selection (Low, Medium, High, Epic; 120 FPS sets to Medium)</li>
-                <li>Custom options menu (press P) for mouse sensitivity adjustments</li>
-                <li>Mouse interaction with mobile UI</li>
-              </ul>
-              <p class="mt-2 text-gray-300">Credit to <strong>rt2746</strong> for the tweak.</p>
-              <p class="mt-2 text-red-500 font-semibold bg-red-900/50 p-2 rounded">Disclaimer: Use FnMacTweak at your own risk. We are not responsible for any damages or incidents caused by this tweak, including bans.</p>
-            `;
-            downloadButton.href = "https://github.com/EpicIPAs/Fn/releases/download/v35.10/Fortnite-35.10_Tweak.ipa";
-            downloadButton.setAttribute("onclick", "trackDownload('Fortnite FnMacTweak IPA', event)");
-            downloadButton.textContent = "Download IPA";
-            tweakButtons.style.display = "flex";
-          } else if (selected === "clean") {
-            ipaInfo.innerHTML = `
-              <p class="text-gray-400">Unmodified IPA file, straight from source.</p>
-            `;
-            downloadButton.href = "https://github.com/EpicIPAs/Fn/releases/download/v35.10/Fortnite-35.10_Clean.ipa";
-            downloadButton.setAttribute("onclick", "trackDownload('Fortnite Clean', event)");
-            downloadButton.textContent = "Download IPA";
-            tweakButtons.style.display = "none";
-          }
-        });
-
-        ipaSelect.dispatchEvent(new Event("change"));
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FnMacIPAs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9N1XVJ5VYW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-9N1XVJ5VYW', { 'debug_mode': true });
+  </script>
+  <script>
+    function trackDownload(fileName, event) {
+      if (event) event.preventDefault();
+      gtag('event', 'download', {
+        'event_category': 'Downloads',
+        'event_label': fileName,
+        'value': 1
       });
-    </script>
+
+      setTimeout(function () {
+        window.location.href = event.target.href;
+      }, 500);
+    }
+  </script>
+  <script>
+    const fortniteVersion = "35.10";
+    const securityToken = "RnJlZUZvcnRuaXRl";
+
+    function requestAccess() {
+      let userKey = prompt("Enter the password to access this site:");
+      let processedKey = btoa(userKey);
+
+      if (processedKey === securityToken) {
+        document.getElementById("content").style.display = "block";
+      } else {
+        alert("Incorrect password! You can find it in the Fortnite Mac Discord server.");
+        document.body.innerHTML = "";
+      }
+    }
+
+    const links = {
+      recommended: "https://github.com/EpicIPAs/Fn/releases/download/v35.10/Fortnite-35.10.ipa",
+      fnmactweak: "https://github.com/EpicIPAs/Fn/releases/download/v35.10/Fortnite-35.10_Tweak.ipa",
+      clean: "https://github.com/EpicIPAs/Fn/releases/download/v35.10/Fortnite-35.10_Clean.ipa",
+      trollstore: "https://github.com/EpicIPAs/Fn/releases/download/v${fortniteVersion}/Fortnite-35.10_TS.tipa"
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("content").style.display = "none";
+      requestAccess();
+
+      document.getElementById("fortnite-version").textContent = fortniteVersion;
+
+      const ipaSelect = document.getElementById("ipa-select");
+      const ipaInfo = document.getElementById("ipa-info");
+      const downloadButton = document.getElementById("download-button");
+      const tweakButtons = document.getElementById("tweak-buttons");
+
+      ipaSelect.addEventListener("change", function () {
+        const selected = ipaSelect.value;
+        tweakButtons.style.display = "none";
+
+        if (selected === "recommended") {
+          ipaInfo.innerHTML = `
+            <p class="text-gray-400">Includes the following tweaks:</p>
+            <ul class="list-disc list-inside text-gray-400">
+              <li>Removed device restriction</li>
+              <li>Allows editing files from the Files app</li>
+              <li>MacOS Fullscreen Patch</li>
+            </ul>
+          `;
+          downloadButton.href = links.recommended;
+          downloadButton.setAttribute("onclick", "trackDownload('Fortnite IPA', event)");
+          downloadButton.textContent = "Download IPA";
+        } else if (selected === "fnmactweak") {
+          ipaInfo.innerHTML = `
+            <p class="text-white">Includes the following regular tweaks:</p>
+            <ul class="list-disc list-inside text-gray-400">
+              <li>Removed device restriction</li>
+              <li>Allows editing files from the Files app</li>
+              <li>MacOS Fullscreen Patch</li>
+            </ul>
+            <p class="text-white mt-2">Plus the following gameplay enhancements by rt2746:</p>
+            <ul class="list-disc list-inside text-gray-400">
+              <li>Toggle pointer locking with Left Option key (unlocked by default on game load)</li>
+              <li>Unlocks 120 FPS option (requires 120Hz display for full effect)</li>
+              <li>Unlocks graphic preset selection (Low, Medium, High, Epic; 120 FPS sets to Medium)</li>
+              <li>Custom options menu (press P) for mouse sensitivity adjustments</li>
+              <li>Mouse interaction with mobile UI</li>
+            </ul>
+            <p class="mt-2 text-gray-300">Credit to <strong>rt2746</strong> for the tweak.</p>
+            <p class="mt-2 text-red-500 font-semibold bg-red-900/50 p-2 rounded">Disclaimer: Use FnMacTweak at your own risk. We are not responsible for any damages or incidents caused by this tweak, including bans.</p>
+          `;
+          downloadButton.href = links.fnmactweak;
+          downloadButton.setAttribute("onclick", "trackDownload('Fortnite FnMacTweak IPA', event)");
+          downloadButton.textContent = "Download IPA";
+          tweakButtons.style.display = "flex";
+        } else if (selected === "clean") {
+          ipaInfo.innerHTML = `
+            <p class="text-gray-400">Unmodified IPA file, straight from source.</p>
+          `;
+          downloadButton.href = links.clean;
+          downloadButton.setAttribute("onclick", "trackDownload('Fortnite Clean', event)");
+          downloadButton.textContent = "Download IPA";
+        } else if (selected === "trollstore") {
+          ipaInfo.innerHTML = `
+            <p class="text-gray-400">Trollstore-compatible IPA for iOS 16.5 and above. This build is currently in testing and may not work.</p>
+            <p class="text-gray-400 mt-2">Includes the following tweaks:</p>
+            <ul class="list-disc list-inside text-gray-400">
+              <li>Removed device restriction</li>
+              <li>Allows editing files from the Files app</li>
+              <li>MacOS Fullscreen Patch</li>
+            </ul>
+          `;
+          downloadButton.href = links.trollstore;
+          downloadButton.setAttribute("onclick", "trackDownload('Fortnite Trollstore IPA', event)");
+          downloadButton.textContent = "Download TIPA";
+        }
+      });
+
+      ipaSelect.dispatchEvent(new Event("change"));
+    });
+  </script>
 </head>
 <body class="bg-gray-900 text-white font-sans">
-    <div id="content" style="display: none;">  
-        <div class="max-w-3xl mx-auto p-6">
-            <h1 class="text-3xl font-bold text-center mb-4">Download Fortnite & Fall Guys IPAs</h1>
-            
-            <p class="text-center text-gray-300">Join the Fortnite Mac Discord server to be the first to know when a new update releases, for both iOS and Mac!</p>
-            <div class="text-center mt-2">
-                <a href="https://discord.gg/nfEBGJBfHD" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Join Discord</a>
-            </div>
-            
-            <div class="mt-6 space-y-4">
-                <div class="bg-gray-800 p-4 rounded-lg shadow-md">
-                    <h2 class="text-xl font-semibold">Fortnite IPAs</h2>
-                    <p class="text-gray-300 mt-2"><strong>Current Version:</strong> 35.10</p>
-                    <div class="mt-4">
-                        <label for="ipa-select" class="text-gray-300">Select IPA Version:</label>
-                        <select id="ipa-select" class="mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-teal-500">
-                            <option value="recommended">Regular IPA (Recommended)</option>
-                            <option value="fnmactweak">Tweaked IPA</option>
-                            <option value="clean">Clean IPA</option>
-                        </select>
-                    </div>
-                    <div id="ipa-info" class="mt-4"></div>
-                    <div id="tweak-buttons" class="flex space-x-2 mt-2" style="display: none;">
-                        <a href="https://github.com/rt-someone/FnMacTweak"
-                           class="block flex-1 bg-gray-600 hover:bg-gray-700 text-white text-center font-bold py-2 px-4 rounded"
-                           onclick="trackDownload('FnMacTweak GitHub', event)">
-                           View Tweak on GitHub
-                        </a>
-                    </div>
-                    <a id="download-button" href="#" class="block mt-4 bg-teal-600 hover:bg-teal-700 text-white text-center font-bold py-2 px-4 rounded"></a>
-                </div>
+  <div id="content" style="display: none;">
+    <div class="max-w-3xl mx-auto p-6">
+      <h1 class="text-3xl font-bold text-center mb-4">Download Fortnite & Fall Guys IPAs</h1>
+      <p class="text-center text-gray-300">Join the Fortnite Mac Discord server to be the first to know when a new update releases, for both iOS and Mac!</p>
+      <div class="text-center mt-2">
+        <a href="https://discord.gg/nfEBGJBfHD" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Join Discord</a>
+      </div>
 
-                <div class="bg-gray-800 p-4 rounded-lg shadow-md">
-                    <h2 class="text-xl font-semibold">Fall Guys IPAs</h2>
-                    <h3 class="text-l">If the regular IPA doesn't work, try the clean version.</h3>
-                    <p class="text-gray-400">Fall Guys IPA includes the following tweaks:</p>
-                    <ul class="list-disc list-inside text-gray-400">
-                        <li>Removed device restriction</li>
-                        <li>Allows editing files from the Files app</li>
-                        <li>MacOS Fullscreen Patch</li>
-                        <li>Lowered minimum iOS version to iOS 10</li>
-                    </ul>
-                    <p class="mt-2 text-gray-300"><strong>Current Version:</strong>19.0.0</p>
-
-                    <a href="https://github.com/EpicIPAs/FG/releases/download/v19.0.0/Fall_Guys-19.0.0.ipa"
-                       class="block mt-2 bg-purple-600 hover:bg-purple-700 text-white text-center font-bold py-2 px-4 rounded"
-                       onclick="trackDownload('Fall Guys IPA', event)">
-                       Download Fall Guys IPA
-                    </a>
-                    <p class="mt-3 text-gray-400">Fall Guys Clean IPA: Unmodified IPA file, straight from source.</p>
-                    <a href="https://github.com/EpicIPAs/FG/releases/download/v19.0.0/Fall_Guys-19.0.0_Clean.ipa"
-                       class="block mt-2 bg-gray-600 hover:bg-gray-700 text-white text-center font-bold py-2 px-4 rounded"
-                       onclick="trackDownload('Fall Guys Clean', event)">
-                       Download Clean IPA
-                    </a>
-                </div>
-            </div>
-
-            <div class="mt-6 p-4 bg-gray-800 rounded-lg shadow-md">
-                <h2 class="text-lg font-semibold">Support Our Work</h2>
-                <p class="text-gray-300 text-sm">We've partnered with Flekst0re! To support us, please use our affiliate link:</p>
-                <a href="https://flekstore.com/affiliate" target="_blank" class="block mt-2 bg-gray-600 hover:bg-gray-700 text-gray-200 text-center text-sm font-semibold py-2 px-4 rounded">Visit Flekst0re</a>
-            </div>
-
-            <div class="mt-6 p-4 bg-gray-800 rounded-lg shadow-md">
-                <h2 class="text-lg font-semibold">Disclaimer</h2>
-                <p class="text-gray-400 text-sm">The original applications are the property of their respective owners, including but not limited to Epic Games Inc. The modifications provided here are solely for personal use, and the original applications must be legally obtained. Redistribution of these modified versions is done for educational purposes only, and no ownership of the original content is claimed.</p>
-            </div>
+      <div class="mt-6 space-y-4">
+        <div class="bg-gray-800 p-4 rounded-lg shadow-md">
+          <h2 class="text-xl font-semibold">Fortnite IPAs</h2>
+          <p class="text-gray-300 mt-2"><strong>Current Version: </strong><span id="fortnite-version"></span></p>
+          <div class="mt-4">
+            <label for="ipa-select" class="text-gray-300">Select IPA Version:</label>
+            <select id="ipa-select" class="mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-teal-500">
+              <option value="recommended">Regular IPA (Recommended)</option>
+              <option value="fnmactweak">Tweaked IPA</option>
+              <option value="clean">Clean IPA</option>
+              <option value="trollstore">Trollstore TIPA (iOS 16.5+)</option>
+            </select>
+          </div>
+          <div id="ipa-info" class="mt-4"></div>
+          <div id="tweak-buttons" class="flex space-x-2 mt-2" style="display: none;">
+            <a href="https://github.com/rt-someone/FnMacTweak"
+               class="block flex-1 bg-gray-600 hover:bg-gray-700 text-white text-center font-bold py-2 px-4 rounded"
+               onclick="trackDownload('FnMacTweak GitHub', event)">
+              View Tweak on GitHub
+            </a>
+          </div>
+          <a id="download-button" href="#" class="block mt-4 bg-teal-600 hover:bg-teal-700 text-white text-center font-bold py-2 px-4 rounded"></a>
         </div>
+
+        <div class="bg-gray-800 p-4 rounded-lg shadow-md">
+          <h2 class="text-xl font-semibold">Fall Guys IPAs</h2>
+          <h3 class="text-l">If the regular IPA doesn't work, try the clean version.</h3>
+          <p class="text-gray-400">Fall Guys IPA includes the following tweaks:</p>
+          <ul class="list-disc list-inside text-gray-400">
+            <li>Removed device restriction</li>
+            <li>Allows editing files from the Files app</li>
+            <li>MacOS Fullscreen Patch</li>
+          </ul>
+          <p class="mt-2 text-gray-300"><strong>Current Version:</strong>19.0.0</p>
+          <a href="https://github.com/EpicIPAs/FG/releases/download/v19.0.0/Fall_Guys-19.0.0.ipa"
+             class="block mt-2 bg-purple-600 hover:bg-purple-700 text-white text-center font-bold py-2 px-4 rounded"
+             onclick="trackDownload('Fall Guys IPA', event)">
+            Download Fall Guys IPA
+          </a>
+          <p class="mt-3 text-gray-400">Fall Guys Clean IPA: Unmodified IPA file, straight from source.</p>
+          <a href="https://github.com/EpicIPAs/FG/releases/download/v19.0.0/Fall_Guys-19.0.0_Clean.ipa"
+             class="block mt-2 bg-gray-600 hover:bg-gray-700 text-white text-center font-bold py-2 px-4 rounded"
+             onclick="trackDownload('Fall Guys Clean', event)">
+            Download Clean IPA
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-6 p-4 bg-gray-800 rounded-lg shadow-md">
+        <h2 class="text-lg font-semibold">Support Our Work</h2>
+        <p class="text-gray-300 text-sm">We've partnered with Flekst0re! To support us, please use our affiliate link:</p>
+        <a href="https://flekstore.com/affiliate" target="_blank" class="block mt-2 bg-gray-600 hover:bg-gray-700 text-gray-200 text-center text-sm font-semibold py-2 px-4 rounded">Visit Flekst0re</a>
+      </div>
+
+      <div class="mt-6 p-4 bg-gray-800 rounded-lg shadow-md">
+        <h2 class="text-lg font-semibold">Disclaimer</h2>
+        <p class="text-gray-400 text-sm">The original applications are the property of their respective owners, including but not limited to Epic Games Inc. The modifications provided here are solely for personal use, and the original applications must be legally obtained. Redistribution of these modified versions is done for educational purposes only, and no ownership of the original content is claimed.</p>
+      </div>
     </div>
+  </div>
 </body>
 </html>
